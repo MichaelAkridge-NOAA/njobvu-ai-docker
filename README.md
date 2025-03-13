@@ -1,12 +1,15 @@
-# njobvu-ai-docker 
+# Njobvu-AI Docker & Codespace 
 
 Containerized **Docker** version of [Njobvu-AI](https://github.com/sullichrosu/Njobvu-AI) 
 > "an open-source tool for collaborative image labeling and implementation of computer vision algorithms."
-
-### Links: 
 - Docker: https://hub.docker.com/r/michaelakridge326/njobvu-ai
 - GHCR: https://github.com/MichaelAkridge-NOAA/njobvu-ai-docker/pkgs/container/njobvu-ai
 
+## Njobvu-AI Codespace Demo 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MichaelAkridge-NOAA/njobvu-ai-docker?devcontainer_path=.devcontainer%2Fnjobvu-ai%2Fdevcontainer.json)
+
+
+## Docker Install
 ### **Prerequisites**
 #### 1. Install [Docker](https://docs.docker.com/get-docker/)
 
