@@ -6,4 +6,4 @@ services:
       - "8080:8080"
     volumes:
       - ./.devcontainer/njobvu-ai/app/post_start.sh:/app/post_start.sh
-      - ./.devcontainer/njobvu-ai/app/README.md:/app/app/README.md
+      - ./.devcontainer/njobvu-ai/app/README.md:/app/README.md
