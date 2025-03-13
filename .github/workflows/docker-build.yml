@@ -1,0 +1,62 @@
+name: Build and Push Image to Docker Hub & GHCR
+on:
+  workflow_dispatch: # Manually trigger via GitHub Actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+    env:
+      VERSION: 1.0.1
+
+    steps:
+      # Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Set lowercase GitHub owner name
+      - name: Set lower case owner name
+        run: echo "OWNER_LC=${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]' | awk -F "=" '{print "OWNER_LC="$2}' >> $GITHUB_ENV
+
+      # Log in to Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      # Build and push Docker image to Docker Hub
+      - name: Build and push Docker image to Docker Hub
+        uses: docker/build-push-action@v6
+        with:
+          context: ./images/njobvu-ai # Use correct build path
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/njobvu-ai:latest,${{ secrets.DOCKER_USERNAME }}/njobvu-ai:${{ env.VERSION }}
+
+      # Update Docker Hub description from README
+      - name: Update Docker Hub description
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+          repository: ${{ secrets.DOCKER_USERNAME }}/njobvu-ai # Correct repo name
+          readme-filepath: ./README.md
+          enable-url-completion: true
+
+      # Log in to GitHub Container Registry (GHCR)
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # Build and push Docker image to GHCR
+      - name: Build and push Docker image to GHCR
+        run: |
+          IMAGE_NAME="njobvu-ai"
+          echo "Building and pushing $IMAGE_NAME"
+          docker build ./images/njobvu-ai -f ./images/njobvu-ai/Dockerfile --tag ghcr.io/${{ env.OWNER_LC }}/$IMAGE_NAME:latest --tag ghcr.io/${{ env.OWNER_LC }}/$IMAGE_NAME:${{ env.VERSION }} --tag ghcr.io/${{ env.OWNER_LC }}/$IMAGE_NAME:${{ github.sha }}
+          docker push ghcr.io/${{ env.OWNER_LC }}/$IMAGE_NAME:latest
+          docker push ghcr.io/${{ env.OWNER_LC }}/$IMAGE_NAME:${{ env.VERSION }}
+          docker push ghcr.io/${{ env.OWNER_LC }}/$IMAGE_NAME:${{ github.sha }}
+

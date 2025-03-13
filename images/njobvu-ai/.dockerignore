@@ -1,0 +1,42 @@
+# Node.js dependencies
+node_modules
+npm-debug.log
+
+# Local development directories
+db_data
+build
+
+# Version control
+.git
+.gitignore
+
+# Documentation and archives
+*.md
+*.zip
+*.tar
+*.tar.gz
+
+# Docker-specific files
+Dockerfile*
+docker-compose*.yml
+
+# Environment and configuration files
+.env
+
+# IDE and editor settings
+.vscode
+.idea
+
+# Logs and temporary files
+logs
+__pycache__
+
+# Windows-specific files
+Thumbs.db
+Desktop.ini
+*.exe
+*.bat
+*.cmd
+*.lnk
+*.vbs
+*.ps1
