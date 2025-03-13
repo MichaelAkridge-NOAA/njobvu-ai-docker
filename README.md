@@ -7,8 +7,7 @@ Containerized **Docker** version of [Njobvu-AI](https://github.com/sullichrosu/N
 
 ## Njobvu-AI Codespace Demo 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MichaelAkridge-NOAA/njobvu-ai-docker?devcontainer_path=.devcontainer%2Fnjobvu-ai%2Fdevcontainer.json)
-
-
+![](docs/s1.png)
 ## Docker Install
 ### **Prerequisites**
 #### 1. Install [Docker](https://docs.docker.com/get-docker/)
