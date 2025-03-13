@@ -1,0 +1,6 @@
+services:
+  njobvu-ai:
+    container_name: njobvu-ai
+    image: michaelakridge326/njobvu-ai:latest
+    ports:
+      - "8080:8080"
