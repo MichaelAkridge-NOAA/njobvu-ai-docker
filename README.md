@@ -1,6 +1,6 @@
 # njobvu-ai-docker
 
-Containerized **Docker ** version of [Njobvu-AI](https://github.com/sullichrosu/Njobvu-AI), "an open-source tool for collaborative image labeling and implementation of computer vision algorithms."
+Containerized **Docker** version of [Njobvu-AI](https://github.com/sullichrosu/Njobvu-AI), "an open-source tool for collaborative image labeling and implementation of computer vision algorithms."
 
 ## Features
 - **Pre-configured Dockerfile & Docker Compose** to easily deploy and run  
@@ -8,16 +8,12 @@ Containerized **Docker ** version of [Njobvu-AI](https://github.com/sullichrosu/
 - **Multi-platform support** (Linux, MacOS, Windows via WSL2)  
 
 ### **Prerequisites**
-- Install [Docker](https://docs.docker.com/get-docker/) & [Docker Compose](https://docs.docker.com/compose/install/)
+- Install [Docker](https://docs.docker.com/get-docker/)
 
 ---
-
-## 📦 **Quick Start (Using Prebuilt Docker Images)**
-
+## **Quick Start (Using Prebuilt Docker Images)**
 ```
-### **🔹 Option 1: Run via Docker Compose**
-```
-docker run -p 8080:8080 njobvu-ai
+docker run -p 8080:8080 michaelakridge326/njobvu-ai
 ```
 
 ### Access the Application
@@ -32,4 +28,4 @@ This repository is a scientific product and is not official communication of the
 - Refer to the original [Njobvu-AI Apache License 2.0 License](https://github.com/sullichrosu/Njobvu-AI/blob/main/LICENSE) for more details on its particulars.
 
 ##### Credits & Attribution
-This project is based on and credits the original authors of Njobvu-AI
+This project is based on and credits the original authors of [Njobvu-AI](https://github.com/sullichrosu/Njobvu-AI)
