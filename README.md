@@ -1,4 +1,4 @@
-# njobvu-ai-docker 
+# Njobvu-AI Docker & Codespace 
 
 Containerized **Docker** version of [Njobvu-AI](https://github.com/sullichrosu/Njobvu-AI) 
 > "an open-source tool for collaborative image labeling and implementation of computer vision algorithms."
